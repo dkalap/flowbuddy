@@ -47,7 +47,7 @@ export default function Signup() {
           </p>
 
           <div style={{ marginTop: '3rem', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {['🗓️ Track your cycle effortlessly', '💬 Ask anything, judgment free', '🫧 Stress relief games', '💡 Break period taboos together'].map((item, i) => (
+            {['🗓️ Track your cycle effortlessly', '💬 Ask anything, judgment free', '🎮 Stress relief games', '💡 Break period taboos together'].map((item, i) => (
               <div key={i} style={{ background: 'rgba(255,255,255,0.2)', borderRadius: '50px', padding: '10px 20px', fontSize: '14px', backdropFilter: 'blur(10px)' }}>
                 {item}
               </div>
@@ -124,11 +124,11 @@ export default function Signup() {
 
   <button onClick={submit} disabled={loading}
     style={{ width: '100%', padding: '14px', background: loading ? '#C9B8E8' : 'linear-gradient(135deg, #D4537E, #993556)', color: 'white', border: 'none', borderRadius: '50px', fontSize: '16px', fontWeight: 500, cursor: loading ? 'not-allowed' : 'pointer', fontFamily: "'DM Sans', sans-serif", boxShadow: '0 8px 32px rgba(153,53,86,0.25)' }}>
-    {loading ? 'Creating account... 🌸' : 'Create my account 🌸'}
+    {loading ? 'Creating account...' : 'Create my account'}
   </button>
 
   <p style={{ textAlign: 'center', fontSize: '12px', color: '#7A5C6E', fontWeight: 300, lineHeight: 1.6 }}>
-    By joining you agree that FlowBuddy is not a medical app. Always consult a doctor for medical concerns 💕
+    By joining you agree that FlowBuddy is not a medical app. Always consult a doctor for medical concerns!
   </p>
 </div>
  </div>

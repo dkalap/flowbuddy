@@ -31,6 +31,7 @@ const signup = async (req, res) => {
       id: user.id,
       name: user.name,
       email: user.email,
+      gender: user.gender,
       token: generateToken(user.id)
     })
 
@@ -60,6 +61,7 @@ const login = async (req, res) => {
       id: user.id,
       name: user.name,
       email: user.email,
+      gender: user.gender,
       token: generateToken(user.id)
     })
 
@@ -81,4 +83,34 @@ const getProfile = async (req, res) => {
   }
 }
 
-module.exports = { signup, login, getProfile }
+//Update Profile
+const updateProfile = async (req, res) => {
+  const { name, dob, gender } = req.body
+  try {
+    const user = await prisma.user.update({
+      where: { id: req.user.id },
+      data: { name, gender, dob: dob ? new Date(dob) : null },
+      select: { id: true, name: true, email: true, gender: true, dob: true }
+    })
+    res.json(user)
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message })
+  }
+}
+
+//changing password
+const changePassword = async (req, res) => {
+  const { currentPassword, newPassword } = req.body
+  try {
+    const user = await prisma.user.findUnique({ where: { id: req.user.id } })
+    const isMatch = await bcrypt.compare(currentPassword, user.password)
+    if (!isMatch) return res.status(400).json({ message: 'Current password is incorrect' })
+    const hashed = await bcrypt.hash(newPassword, 10)
+    await prisma.user.update({ where: { id: req.user.id }, data: { password: hashed } })
+    res.json({ message: 'Password changed successfully!' })
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message })
+  }
+}
+
+module.exports = { signup, login, getProfile, updateProfile, changePassword }

@@ -9,6 +9,7 @@ import Exercise from './pages/Exercise'
 import Care from './pages/Care'
 import Awareness from './pages/Awareness'
 import Profile from './pages/Profile'
+import Games from './pages/Games'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path="/care" element={<ProtectedRoute><Care /></ProtectedRoute>} />
       <Route path="/awareness" element={<ProtectedRoute><Awareness /></ProtectedRoute>} />
       <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+      <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
     </Routes>
   )
 }
