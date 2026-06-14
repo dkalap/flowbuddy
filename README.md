@@ -88,13 +88,21 @@ ChatLog
 ## 🚧 Future Roadmap
 v2.0
 ├── 🌐 Hindi + multilingual support
+
 ├── 📧 Email notifications & period reminders
+
 ├── 🗑️ Delete account feature
+
 ├── 📊 Analytics dashboard with charts
+
 ├── 📱 PWA (install on phone like native app)
+
 ├── 🤝 Share cycle data with partner/doctor
+
 ├── 📝 Period journal/notes
+
 ├── 🏆 Achievements & streaks system
+
 └── 🔐 Forgot password via email
 
 ---
