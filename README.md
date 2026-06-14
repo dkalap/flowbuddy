@@ -65,23 +65,32 @@ FlowBuddy is a full-stack menstrual health web application built to break the ta
 ## 🗄️ Database Schema
 User
 ├── id, name, email, password (hashed)
+
 ├── gender, dob
+
 └── createdAt, updatedAt
 
 Cycle
 ├── id, startDate, endDate
+
 ├── flowLevel, painLevel, notes
+
 └── userId (→ User)
 
 Symptom
 ├── id, date, mood
+
 ├── cramps, bloating, headache, fatigue, backPain
+
 ├── notes
+
 └── userId (→ User), cycleId (→ Cycle)
 
 ChatLog
 ├── id, question, answer
+
 ├── createdAt
+
 └── userId (→ User)
 
 ---
